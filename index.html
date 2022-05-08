@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Thumbnail Downloader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h2 style="display: inline;">Thumbnail Downloader</h1>
+    <h5 style="display: inline;">by rgantzos</h3>
+      <div style="height: 10vh;"></div>
+      <input type="text">
+      <button onclick="getThumbnail()">Get Thumbnail</button>
+      <div style="height: 5vh;"></div>
+</body>
+
+<script>
+
+  document.querySelector('input').value = '666623071'
+
+  function getThumbnail() {
+    document.querySelectorAll('img').forEach(function (el) {
+      el.remove()
+    })
+    var img = document.createElement('img')
+    var src = document.querySelector('input').value
+    download('https://cdn2.scratch.mit.edu/get_image/project/' + src + '_480x360.png')
+    img.src = 'https://cdn2.scratch.mit.edu/get_image/project/' + src + '_480x360.png'
+    document.body.appendChild(img)
+  }
+
+  function download(source) {
+    const fileName = source.split('/').pop();
+    var el = document.createElement("a");
+    el.setAttribute("href", source);
+    el.setAttribute("download", fileName);
+    document.body.appendChild(el);
+    el.click();
+    el.remove();
+  }
+
+</script>
+
+<style>
+  @font-face {
+    font-family: ‘helvetica neue’;
+    src: local(‘Arial’);
+  }
+
+  img {
+    width: 30vw;
+  }
+
+  input {
+    outline: none;
+    border: 0px;
+    border-radius: 5vw;
+    font-family: Helvetica Neue;
+    height: 2vh;
+    padding: 1vh;
+    width: 10vw;
+    font-size: 1vw;
+    background-color: #d9d9d9;
+  }
+
+  button {
+    outline: none;
+    border: 0px;
+    border-radius: 5vw;
+    font-family: Helvetica Neue;
+    height: 4vh;
+    width: 10vw;
+    font-size: 1vw;
+    background-color: #d9d9d9;
+  }
+
+  body {
+    font-family: Helvetica Neue;
+  }
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  h2 {
+    font-size: 4.2vw;
+  }
+
+  h3 {
+    font-size: 3.4vw;
+  }
+
+  h4 {
+    font-size: 2.6vw;
+  }
+
+  h5 {
+    font-size: 2vw;
+  }
+
+  h6 {
+    font-size: 1.5vw;
+  }
+</style>
+
+</html>
